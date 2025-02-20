@@ -22,13 +22,13 @@ router.get("/", rejectUnauthenticated, (req, res) => {
 
 // Post to add a new item
 router.post('/add-item', rejectUnauthenticated, async (req, res) => {
-  const { name, description, image_url, created_by} = req.body;
+  const { description, image_url} = req.body;
 
   const sqlText = `
-    INSERT INTO "item" ("name", "description", "image_url", "created_by")
-    VALUES ($1, $2, $3, $4) RETURNING *;
+    INSERT INTO "item" ("description", "image_url", "user_id")
+    VALUES ($1, $2, $3) RETURNING *;
   `;
-  const values = [name, description, image_url, created_by]; 
+  const values = [description, image_url, req.user.id]; 
 
   try {
     const result = await pool.query(sqlText, values);
