@@ -8,15 +8,13 @@ const router = express.Router();
 
 
 router.get("/", rejectUnauthenticated, (req, res) => {
-    console.log('req.user', req.item);
-    const sqlText = `SELECT * FROM "item";`;
-
-    pool.query(sqlText, [req.item])
-  .then((dbRes) => {
-    res.send(dbRes.rows);
+    const queryText = `SELECT * FROM "item";`;
+    pool.query(queryText)
+      .then((result) => {
+        res.send(result.rows);
       })
-      .catch((dbErr) => {
-        console.log('GET /api/items error:', dbErr);
+      .catch((err) => {
+        console.log("Error getting items", err);
         res.sendStatus(500);
       });
   });
