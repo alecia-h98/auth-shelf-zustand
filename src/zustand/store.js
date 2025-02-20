@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import devtools from 'zustand/middleware';
+import { devtools } from 'zustand/middleware';
 import userSlice from './slices/user.slice.js';
 import shelfSlice from './slices/shelf.slice.js';
 
