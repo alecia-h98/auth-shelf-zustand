@@ -71,17 +71,17 @@ For example, you're going to need to create new React Router Routes and Nav link
 
 ### Display All Items:
 
-[] - The Shelf page should show all of the items stored in the database in a list or table. **This list should only be viewable to logged-in (authenticated) users.**
+[] - Alex - The Shelf page should show all of the items stored in the database in a list or table. **This list should only be viewable to logged-in (authenticated) users.**
 
 ### Add Items to the Shelf:
 
-[] - The Shelf page should allow a user to add a new item to the database (which should immediately appear in the list). **This view should only be viewable to logged-in (authenticated) users.**
+[] - Ismail - The Shelf page should allow a user to add a new item to the database (which should immediately appear in the list). **This view should only be viewable to logged-in (authenticated) users.**
 
 > NOTE: Image url should be a full path to an existing image on the web. You should not attempt to implement image upload for this.
 
 ### Delete Items from the Shelf:
 
-[] - An authenticated user should be able to delete items from the Shelf page, if they were the one who added the item to the shelf.
+[] - Alecia - An authenticated user should be able to delete items from the Shelf page, if they were the one who added the item to the shelf.
 
 > NOTE: This should require client and server changes. An unauthenticated attacker from Postman should not be able to delete anything.
 
