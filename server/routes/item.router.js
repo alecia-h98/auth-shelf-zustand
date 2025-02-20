@@ -8,18 +8,17 @@ const router = express.Router();
 
 
 router.get("/", rejectUnauthenticated, (req, res) => {
-    console.log('req.user', req.item);
+    console.log('req.item', req.item);
     const sqlText = `SELECT * FROM "item";`;
-
-    pool.query(sqlText, [req.item])
-  .then((dbRes) => {
-    res.send(dbRes.rows);
+    pool.query(sqlText)
+      .then((dbRes) => {
+        res.send(dbRes.rows);
       })
       .catch((dbErr) => {
-        console.log('GET /api/items error:', dbErr);
+        console.log('GET /api/item error:', dbErr);
         res.sendStatus(500);
       });
-  });
+}); 
 
   module.exports = router;
   
