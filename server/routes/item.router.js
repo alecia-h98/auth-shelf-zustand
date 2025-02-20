@@ -44,13 +44,17 @@ router.post('/add-item', rejectUnauthenticated, async (req, res) => {
 //NEED TO FIX THE QUERY CODE TO MATCH THE CASE. IT CAN ONLY BE DELETED BY THE ONE THAT MADE IT.
 //if statement..?
 router.delete("/delete/:id", rejectUnauthenticated, (req, res) => {
+  const reqId = req.user.id; //there can't be a req.body in a delete
+  //I am trying to grab the id of the user making the request
+  console.log(reqId);
   const query = `
   DELETE 
 FROM "item"
-WHERE "item"."id" = $1;
+WHERE "item"."id" = $1 && "item"."user_id" = $2;
   `;
-  pool.query(query, [req.params.id])
+  pool.query(query, [req.params.id], [req.user.id]) //I need another item in brackets in these params.
     .then(result => {
+    
       res.send(result.rows);
     })
     .catch(err => {
