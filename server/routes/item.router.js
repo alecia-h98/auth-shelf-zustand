@@ -21,7 +21,8 @@ router.get("/", rejectUnauthenticated, (req, res) => {
       });
   });
 
-
+//NEED TO FIX THE QUERY CODE TO MATCH THE CASE. IT CAN ONLY BE DELETED BY THE ONE THAT MADE IT.
+//if statement..?
 router.delete("/delete/:id", rejectUnauthenticated, (req, res) => {
   const query = `
   DELETE 
